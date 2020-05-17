@@ -3,17 +3,22 @@
 set -e
 
 if [ "${1:0:1}" = '-' ]; then
-    set -- curl "$@"
+    set -- fio "$@"
 fi
 
-if [ "$1" = 'curl' ]; then
-  if [ -f /${USER}/.curlrc && "$(stat -c %u /${USER}/.curlrc)" != "$(id -u ${USER})" ]; then
-    chown ${GROUP}:${USER} /${USER}/.curlrc
+if [ "$1" = 'fio' -o "$1" = 'ioping' ]; then
+  if [ "$(stat -c %u /iops/config)" != "$(id -u iops)" ]; then
+    chown iops:iops /iops/config
+  fi
+  if [ "$(stat -c %u /iops/data)" != "$(id -u iops)" ]; then
+    chown iops:iops /iops/data
   fi
 fi
 
-if [ "$1" = 'curl' ]; then
-  set -- su-exec ${GROUP}:${USER} "$@"
+if [ "$1" = 'fio' ]; then
+  set -- su-exec iops:iops "$@"
+elif [ "$1" = 'ioping' ]; then
+  set -- su-exec iops:iops "$@"
 fi
 
 exec "$@"

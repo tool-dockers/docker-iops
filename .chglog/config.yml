@@ -2,7 +2,7 @@ style: github
 template: CHANGELOG.tpl.md
 info:
   title: CHANGELOG
-  # repository_url: https://github.com/organization-name/repository-name
+  repository_url: https://github.com/tool-dockers/docker-iops
 options:
   commits:
     filters:

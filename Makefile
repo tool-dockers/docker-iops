@@ -7,8 +7,8 @@ GIT_DIRTY=$(shell test -n "`git status --porcelain`" && echo "+CHANGES" || true)
 VERSION_LABEL=$(shell semtag getlast | cut -c 2-)
 
 # Docker image information
-REGISTRY_NAME?=docker.io/acme
-IMAGE_NAME=hello-world
+REGISTRY_NAME?=tooldockers
+IMAGE_NAME=iops
 IMAGE_TAG=$(REGISTRY_NAME)/$(IMAGE_NAME):$(VERSION)
 
 #:help: help        | Displays the GNU makefile help
@@ -31,6 +31,11 @@ changelog:
 	@git add CHANGELOG.md && git commit -m "Updated CHANGELOG"
 	@git push
 
+#:help: clean       | Cleans the Docker
+.PHONY: clean
+clean:
+	@rm -f $(NAME).tar
+
 #:help: precommit   | Lint the project files using pre-commit
 .PHONY: precommit
 precommit:
@@ -48,3 +53,13 @@ publish:
 release:
 	@semtag final -s minor
 	@git push --follow-tags
+
+#:help: load        | Loads the Docker image from a tar-file
+.PHONY: load
+load:
+	@docker load < $(NAME).tar
+
+#:help: save        | Saves the Docker image to a tar-file
+.PHONY: save
+save:
+	@docker save continuul/$(IMAGE_NAME) > $(NAME).tar
