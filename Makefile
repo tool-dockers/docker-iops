@@ -57,9 +57,9 @@ release:
 #:help: load        | Loads the Docker image from a tar-file
 .PHONY: load
 load:
-	@docker load < $(NAME).tar
+	@docker load < $(IMAGE_NAME).tar
 
 #:help: save        | Saves the Docker image to a tar-file
 .PHONY: save
 save:
-	@docker save continuul/$(IMAGE_NAME) > $(NAME).tar
+	@docker save continuul/$(IMAGE_NAME) > $(IMAGE_NAME).tar
