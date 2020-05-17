@@ -1,10 +1,12 @@
 FROM alpine:3.11
 
+ARG VERSION
+
 LABEL \
     "name"="tooldockers/iops" \
     "maintainer"="tool-dockers" \
-    "version"="3.16" \
-    "release"="v0.1.0" \
+    "version"="${VERSION}" \
+    "release"="3.16" \
     "vendor"="tool-dockers" \
     "summary"="I/O performance statistics" \
     "description"="Alpine-based Docker containing fio, and ioping, a filesystem benchmarking tool."

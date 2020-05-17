@@ -62,4 +62,4 @@ load:
 #:help: save        | Saves the Docker image to a tar-file
 .PHONY: save
 save:
-	@docker save continuul/$(IMAGE_NAME) > $(IMAGE_NAME).tar
+	@docker save $(REGISTRY_NAME)/$(IMAGE_NAME) > $(IMAGE_NAME).tar
