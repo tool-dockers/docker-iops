@@ -1,12 +1,10 @@
-[![tool-dockers][logo]](https://continuul.solutions)
-
 # Quick reference
 
 -	**Maintained by**:
 	[tool-dockers](https://github.com/tool-dockers/docker-iops)
 
 -	**Where to get help**:
-	[the tool-dockers Community Slack](http://tool-dockers.slack.com)
+	[the tool-dockers Community Slack][slack]
 
 # Supported tags and respective `Dockerfile` links
 
@@ -27,6 +25,8 @@
 	[repo's README](https://github.com/tool-dockers/docker-iops/blob/master/README.md) ([history](https://github.com/tool-dockers/docker-iops/commits/master/README.md))
 
 # docker-iops
+
+[![tool-dockers][logo]][website]
 
 `docker-iops` is a IO benchmarking tool Docker containing Fio and IOPing. For more information, please see:
 
@@ -235,7 +235,7 @@ As for any pre-built image usage, it is the image user's responsibility to ensur
 
   [logo]: https://avatars3.githubusercontent.com/u/57697117?s=60&v=4
   [website]: https://continuul.solutions
-  [slack]: https://slack.tool-dockers.com
+  [slack]: https://continuul.slack.com
 
   [oracle-fio]: https://docs.cloud.oracle.com/en-us/iaas/Content/Block/References/samplefiocommandslinux.htm
   [using-dd]: https://www.cyberciti.biz/faq/howto-linux-unix-test-disk-performance-with-dd-command/
